@@ -33,9 +33,9 @@ Query:
 select count(*) from (select user_ID,count(*) as number from dbt_nicosteffenneuefischede.stg_orders group by user_ID) where number =1/=2/>2;
 ````
 *Res:*
-- 1-> 25
-- 2->28
-- \>2->71
+- 1 &rarr; 25
+- 2 &rarr;28
+- \>2&rarr;71
 
 
 ### Q5: On average, how many unique sessions do we have per hour?
