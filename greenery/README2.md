@@ -35,7 +35,7 @@ select count(*) from (select user_ID,count(*) as number from dbt_nicosteffenneue
 *Res:*
 - 1-> 25
 - 2->28
-- >2->71
+- \>2->71
 
 
 ### Q5: On average, how many unique sessions do we have per hour?
