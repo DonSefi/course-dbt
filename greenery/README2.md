@@ -2,7 +2,8 @@
 
 Query: 
 ```sql
-select count(distinct(name)) from dbt_nicosteffenneuefischede.stg_products
+select count(distinct(name)) 
+from dbt_nicosteffenneuefischede.stg_products
 ```
 *Res:*
 - 30
@@ -11,8 +12,11 @@ select count(distinct(name)) from dbt_nicosteffenneuefischede.stg_products
 
 Query:
 ```sql
- select avg(cnt) from (select  count(*) as cnt, HOUR(created_at) as order_our from dbt_nicosteffenneuefischede.stg_orders group by order_our order by 
-order_our)
+ select avg(cnt) from (
+     select  count(*) as cnt, HOUR(created_at) as order_our 
+     from dbt_nicosteffenneuefischede.stg_orders 
+     group by order_our 
+     order by order_our)
 ````
 *Res:*
 - 15.04
@@ -21,7 +25,9 @@ order_our)
 
 Query:
 ```sql
-select avg(TIMESTAMPDIFF(HOUR,created_at,delivered_at)) from dbt_nicosteffenneuefischede.stg_orders where delivered_at is not null  
+select avg(TIMESTAMPDIFF(HOUR,created_at,delivered_at))
+from dbt_nicosteffenneuefischede.stg_orders
+where delivered_at is not null  
 ````
 *Res:*
 - 93.4
@@ -30,7 +36,12 @@ select avg(TIMESTAMPDIFF(HOUR,created_at,delivered_at)) from dbt_nicosteffenneue
 
 Query:
 ```sql
-select count(*) from (select user_ID,count(*) as number from dbt_nicosteffenneuefischede.stg_orders group by user_ID) where number =1/=2/>2;
+select count(*)
+from (
+    select user_ID,count(*) as number 
+    from dbt_nicosteffenneuefischede.stg_orders 
+    group by user_ID)
+where number =1/=2/>2;
 ````
 *Res:*
 - 1 &rarr; 25
@@ -42,8 +53,15 @@ select count(*) from (select user_ID,count(*) as number from dbt_nicosteffenneue
 
 Query:
 ```sql
-with cte as (select session_id,hour(created_at) as hour_created from dbt_nicosteffenneuefischede.stg_events order by hour_created)
-select avg(distinct_sessions) from (select count(distinct(session_id)) as distinct_sessions,hour_created from cte group by hour_created);
+with cte as (
+    select session_id,hour(created_at) as hour_created 
+    from dbt_nicosteffenneuefischede.stg_events 
+    order by hour_created )
+select avg(distinct_sessions)
+from (select count(distinct(session_id)) as distinct_sessions, hour_created
+    from cte
+    group by
+    hour_created);
 ````
 *Res:*
 - 39.45
