@@ -12,11 +12,13 @@ from dbt_nicosteffenneuefischede.stg_products
 
 Query:
 ```sql
- select avg(cnt) from (
+ select avg(cnt) 
+ from (
      select  count(*) as cnt, HOUR(created_at) as order_our 
      from dbt_nicosteffenneuefischede.stg_orders 
      group by order_our 
-     order by order_our)
+     order by order_our
+     )
 ````
 *Res:*
 - 15.04
@@ -30,7 +32,7 @@ from dbt_nicosteffenneuefischede.stg_orders
 where delivered_at is not null  
 ````
 *Res:*
-- 93.4
+- 93.4 (hours)
 
 ### Q4: How many users have only made one purchase? Two purchases? Three+ purchases?
 
@@ -40,7 +42,8 @@ select count(*)
 from (
     select user_ID,count(*) as number 
     from dbt_nicosteffenneuefischede.stg_orders 
-    group by user_ID)
+    group by user_ID
+    )
 where number =1/=2/>2;
 ````
 *Res:*
@@ -56,12 +59,15 @@ Query:
 with cte as (
     select session_id,hour(created_at) as hour_created 
     from dbt_nicosteffenneuefischede.stg_events 
-    order by hour_created )
+    order by hour_created
+    )
 select avg(distinct_sessions)
-from (select count(distinct(session_id)) as distinct_sessions, hour_created
+from (
+    select count(distinct(session_id)) as distinct_sessions, hour_created
     from cte
     group by
-    hour_created);
+    hour_created
+    );
 ````
 *Res:*
 - 39.45
