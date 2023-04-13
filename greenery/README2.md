@@ -2,11 +2,11 @@
 
 Query: 
 ```sql
-select count(distinct(name)) 
-from dbt_nicosteffenneuefischede.stg_products
+select count(*) 
+from dbt_nicosteffenneuefischede.stg_users
 ```
 *Res:*
-- 30
+- 130
 
 ### Q2: On average, how many orders do we receive per hour?
 
