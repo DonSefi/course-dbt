@@ -7,7 +7,7 @@
 with 
 source as (
 	SELECT *
-		FROM {{ source('postgres','adresses') }}
+		FROM {{ source('postgres','addresses') }}
 	),
 renamed_recast as (
 
