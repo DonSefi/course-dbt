@@ -3,9 +3,9 @@ version: 2
 models:
   - name: stg_adresses
     description: Adresses for the Greenery customers
-  - name: stg_events
-  - name: stg_order_items
-  - name: stg_orders
-  - name: stg_products
-  - name: stg_promos
-  - name: stg_users    
+  - name: stg_postgres__events
+  - name: stg_postgres__order_items
+  - name: stg_postgres__orders
+  - name: stg_postgres__products
+  - name: stg_postgres__promos
+  - name: stg_postgres__users    
