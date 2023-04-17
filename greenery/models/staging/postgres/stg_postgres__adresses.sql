@@ -17,6 +17,6 @@ renamed_recast as (
 	lpad(zipcode,5,0) as zipcode,
 	state,
     	country
-FROM source
+	FROM source)
 
 select * from renamed_recast
