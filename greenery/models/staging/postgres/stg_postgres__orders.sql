@@ -6,15 +6,15 @@
 
 SELECT
  -- UUID for each unique order on platform
-  order_id,
+  order_id as order_guid,
   -- UserId of the user that placed this order
-  user_id ,
+  user_id as user_guid ,
   -- PromoId if any was used in the order
-  promo_id,
+  promo_id as promo_name,
   -- Delivery address for this order
-  address_id,
+  address_id as address_guid,
   -- Timestamp when the order was created
-  created_at,
+  created_at ,
   -- Dollar about of the items in the order
   order_cost,
   -- Cost of shipping for the order
@@ -22,7 +22,7 @@ SELECT
   -- Total cost of the order including shipping
   order_total,
   -- Tracking number for the order/package
-  tracking_id,
+  tracking_id as tracking_guid,
   -- Company that was used for shipping
   shipping_service,
   -- Estimated date of delivery

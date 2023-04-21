@@ -6,7 +6,7 @@
 
 SELECT
 
-  event_id,
+  event_id as event_guid,
   -- UUID of each browsing session on the platform which can contain many events
   session_id as event_session_guid,
   -- UUID of the user that this event is associated with
@@ -18,7 +18,7 @@ SELECT
   -- Type of event
   event_type,
   -- If the event is specific to an order (mostly used for checkout)
-  order_id,
+  order_id as order_guid,
   -- If the event is specific to a product
-  product_id
+  product_id as product_guid
 FROM {{ source('postgres', 'events') }}

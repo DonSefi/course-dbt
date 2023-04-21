@@ -6,11 +6,11 @@
 
 SELECT
    -- UUID for each unique product on platform
-  product_id,
+  product_id as product_guid,
   -- Name of the product
-  name,
+  name as product_name,
   -- Price of the product
-  price,
+  price as product_price,
   -- Amount of the inventory we have for this product
-  inventory
+  inventory as available_inventory
 FROM {{ source('postgres', 'products') }}

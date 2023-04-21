@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: fct_user_sessions
+    columns:
+      - name: event_session_guid
+        tests:
+          - unique
+          - not_null
+  - name: dim_user_order_data
+    columns:
+      - name: user_guid
+        tests:
+          - unique
+          - not_null
+      - name: number_of_orders
+        tests:
+          - not_null
+    
+

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_session_events_agg
+  - name: int_user_orders
+    columns:
+      - name: user_guid
+        tests:
+        - not_null
+        - unique
+  - name: int_user_data

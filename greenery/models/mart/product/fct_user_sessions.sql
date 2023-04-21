@@ -32,8 +32,8 @@ SELECT
     timediff('minute',first_session_event,last_session_event) as session_length_minutes
 from session_events_agg
 left join users
-    on session_events_agg.event_user_guid = users.user_id
+    on session_events_agg.event_user_guid = users.user_guid
 left join user_addresses
     on users.address_guid = user_addresses.address_guid
-limit 100
+
 

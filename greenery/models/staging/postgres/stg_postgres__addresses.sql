@@ -9,6 +9,7 @@ source as (
 	SELECT *
 		FROM {{ source('postgres','addresses') }}
 	),
+    
 renamed_recast as (
 	SELECT
     	address_id as address_guid,

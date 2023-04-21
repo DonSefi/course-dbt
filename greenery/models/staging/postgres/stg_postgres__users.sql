@@ -6,7 +6,7 @@
 
 SELECT
   -- UUID for each unique user on platform
-  user_id,
+  user_id as user_guid,
   -- first name of the user
   first_name,
   -- last name of the user
