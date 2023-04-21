@@ -5,16 +5,16 @@
 }}
 
 SELECT
- -- UUID of each unique event on the platform
+
   event_id,
   -- UUID of each browsing session on the platform which can contain many events
-  session_id,
+  session_id as event_session_guid,
   -- UUID of the user that this event is associated with
-  user_id,
+  user_id as event_user_guid,
   -- URL that the event happened on
-  page_url,
+  page_url as event_page_url,
   -- Timestamp of the event
-  created_at,
+  created_at as event_created_at_UTC,
   -- Type of event
   event_type,
   -- If the event is specific to an order (mostly used for checkout)

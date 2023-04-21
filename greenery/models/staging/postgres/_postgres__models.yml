@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_postgres__adresses
+  - name: stg_postgres__addresses
   - name: stg_postgres__events
   - name: stg_postgres__order_items
   - name: stg_postgres__orders

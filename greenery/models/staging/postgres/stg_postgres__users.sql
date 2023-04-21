@@ -20,5 +20,5 @@ SELECT
   -- timestamp the user was last updated
   updated_at ,
   -- default delivery address for the user
-  address_id 
+  address_id as address_guid
 FROM {{ source('postgres', 'users') }}
