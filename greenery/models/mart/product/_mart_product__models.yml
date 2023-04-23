@@ -16,5 +16,20 @@ models:
       - name: number_of_orders
         tests:
           - not_null
+  - name: fct_product_sales
+    columns:
+      - name: product_guid
+      tests:
+        - unique
+        - not_null
+      - name: product_price
+      tests:
+        - positive_values
+      - name: total_quantity
+      tests:
+        - positive_values
+      - name: total_sum
+      tests:
+        - positive_values
     
 
