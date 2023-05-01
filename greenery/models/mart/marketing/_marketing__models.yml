@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: int_repeat_rate
+  - name: fct_conversion_rate_all_products
+  - name: fct_conversion_rate_per_product
+
