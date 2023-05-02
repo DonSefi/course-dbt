@@ -17,7 +17,7 @@ with session_agg as(
     )
 %}
 
--- yeah i wanted to try out jinja :) 
+
 distinct_sessions_per_product as(
     {%- for product_guid in product_guids %}
     SELECT
@@ -25,9 +25,10 @@ distinct_sessions_per_product as(
         count(distinct event_session_guid) as count_distinct_sessions
         FROM (
             SELECT * from session_agg where product_guid = '{{product_guid}}')
-    UNION
+    {%- if loop.last  %}  
+    {%- else %} UNION {%- endif %}
     {%- endfor %}
-    Select Null,Null
+    
 ),
 
 checked_out_event_session as (
