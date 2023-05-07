@@ -2,6 +2,7 @@ version: 2
 
 models:
   - name: int_repeat_rate
+  - name: int_products_events
   - name: fct_conversion_rate_all_products
   - name: fct_conversion_rate_per_product
   - name: fct_product_funnel
