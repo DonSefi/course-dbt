@@ -4,4 +4,21 @@ models:
   - name: int_repeat_rate
   - name: fct_conversion_rate_all_products
   - name: fct_conversion_rate_per_product
+  - name: fct_product_funnel
+  - name: KPI_product_funnel
+
+exposures:
+
+  - name: product_funnel_KPI_REPORT
+    label: marketing_weekly_KPIs
+    type: dashboard
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - ref('KPI_product_funnel')
+
+    owner:
+      name: Nico
+      email: Nico.Steffen@neuefische.de
 
