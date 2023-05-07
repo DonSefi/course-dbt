@@ -36,13 +36,13 @@ checked_out_event_session as (
     where event_type='checkout'
 )
 
-
 SELECT
     checked_out_event_session.product_guid as product_guid,
     products.product_name as product_name,
-    checked_out_event_session.checkout_sessions as checkout_sessions,
-    distinct_sessions_per_product.count_distinct_sessions as count_distinct_sessions,
-    div0(checkout_sessions,count_distinct_sessions) as product_conversion_rate
+    products_events.page_views as page_view_sessions,
+    products_events.add_to_carts as add_to_carts_sessions,
+    checked_out_event_session.checkout_sessions as checkout_sessions
+    
 FROM
     checked_out_event_session
 left join 
@@ -53,3 +53,7 @@ left join
     {{ref('stg_postgres__products')}} products
 on
     products.product_guid=checked_out_event_session.product_guid
+left join
+    {{ref('int_products_events')}} products_events
+on
+    products_events.product_guid=checked_out_event_session.product_guid

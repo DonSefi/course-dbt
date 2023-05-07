@@ -19,6 +19,7 @@ purchased_sessions as(
     WHERE 
     checkouts = 1
 ) ,
+
 all_sessions as(
     SELECT 
     count(*) as n_sessions
